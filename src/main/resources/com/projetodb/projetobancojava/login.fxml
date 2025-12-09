@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="paneBg" fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="464.0" prefWidth="700.0" stylesheets="@../../../css/loginStyles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetodb.projetobancojava.LoginController">
+   <children>
+      <ImageView fitHeight="500.0" fitWidth="340.0" layoutY="-36.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../images/gradient.jpg" />
+         </image>
+         <effect>
+            <DropShadow height="31.99" radius="16.412499999999998" width="35.66">
+               <color>
+                  <Color red="0.2906999886035919" green="0.33456000685691833" blue="0.5099999904632568" opacity="0.6030534505844116" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <AnchorPane id="paneLogin" layoutX="356.0" layoutY="44.0" prefHeight="358.0" prefWidth="330.0">
+         <children>
+            <StackPane layoutY="302.0" prefHeight="49.0" prefWidth="330.0">
+               <children>
+                  <Button id="btnLogin" fx:id="btnLogin" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="54.0" prefWidth="155.0" text="Login" />
+               </children>
+            </StackPane>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="35.0" prefHeight="58.0" prefWidth="273.0" text="LOGIN" textFill="#212844">
+               <font>
+                  <Font name="Agency FB" size="40.0" />
+               </font>
+            </Label>
+            <Group layoutX="29.0" layoutY="110.0">
+               <children>
+                  <Group>
+                     <children>
+                        <TextField fx:id="txtEmail" prefHeight="39.0" prefWidth="273.0" promptText="Digite seu email">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </TextField>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="9.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/emailIcon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+                  <Group layoutY="59.0">
+                     <children>
+                        <PasswordField fx:id="psfSenha" prefHeight="39.0" prefWidth="273.0" promptText="Digite sua senha">
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </PasswordField>
+                        <TextField fx:id="txtSenhaVisivel" prefHeight="39.0" prefWidth="273.0" promptText="Digite sua senha">
+                           <padding>
+                              <Insets left="40.0" />
+                           </padding>
+                        </TextField>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" layoutX="11.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/passwordIcon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Group>
+               </children>
+            </Group>
+            <CheckBox fx:id="cbxMostrarSenha" layoutX="30.0" layoutY="220.0" mnemonicParsing="false" text="Mostrar senha" />
+            <Label fx:id="lblError" layoutX="31.0" layoutY="250.0" prefHeight="37.0" prefWidth="227.0" text="Email ou senha incorretos" textFill="#ff0f0f">
+               <font>
+                  <Font name="Segoe UI" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="139.0" fitWidth="135.0" layoutX="103.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../images/bankAppLogoWhite.png" />
+         </image>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color opacity="0.18702289462089539" />
+               </color>
+            </DropShadow>
+         </effect>
+      </ImageView>
+      <Label layoutX="77.0" layoutY="187.0" text="Bem vindo(a)" textFill="WHITE">
+         <font>
+            <Font name="Agency FB" size="45.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.16693469882011414" green="0.15046297013759613" blue="0.17105263471603394" opacity="0.2800000011920929" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+      <Label layoutX="22.0" layoutY="250.0" prefHeight="58.0" prefWidth="297.0" text="Faça o login com o seu email e senha de funcionário." textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Arial Rounded MT Bold" size="21.0" />
+         </font>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.17404000461101532" green="0.1671999990940094" blue="0.1899999976158142" opacity="0.37022900581359863" />
+               </color>
+            </DropShadow>
+         </effect>
+      </Label>
+   </children>
+</AnchorPane>

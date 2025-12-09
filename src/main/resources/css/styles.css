@@ -1,0 +1,59 @@
+
+#paneMenu {
+     -fx-background-color: linear-gradient(to bottom, #26262e, #1f1f25);
+}
+
+#hBoxSair {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 5;
+}
+
+#hBoxSair:hover {
+    -fx-background-color: linear-gradient(to bottom right, #47759c, #375e8a);
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-background-radius: 4px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 6,0,-2,2);
+}
+
+
+#paneSair {
+    -fx-background-color: linear-gradient(to bottom right, #47759c, #375e8a);
+    -fx-background-radius: 4px;
+    -fx-padding: 4px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 6,0,-3,3);
+}
+
+#paneDir {
+    -fx-background-color: #ebedef;
+}
+
+#vBoxMenu .button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-border-radius: 5px;
+    -fx-border-color: transparent transparent linear-gradient(to right, #6a6a71, #262630) transparent;
+    -fx-padding: 5 10 5 30;
+}
+
+#vBoxMenu .button:hover {
+    -fx-background-color: linear-gradient(to left, #4887a3, #375e8a);
+    -fx-border-color:transparent;
+    -fx-cursor: hand;
+    -fx-background-radius: 12px;
+}
+
+#vBoxMenu .btnMenu.selected {
+    -fx-background-color: #32323D;
+    -fx-border-width: 0 0 0 6;
+    -fx-border-color: #3e7bd1;
+    -fx-font-weight: bold;
+}
+

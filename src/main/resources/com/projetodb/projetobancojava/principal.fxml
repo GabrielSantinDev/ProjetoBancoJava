@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="619.0" prefWidth="1027.0" stylesheets="@../../../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.projetodb.projetobancojava.PrincipalController">
+   <children>
+      <AnchorPane id="paneDir" layoutX="277.0">
+         <children>
+            <HBox prefHeight="619.0" prefWidth="750.0" spacing="25.0">
+               <children>
+                  <StackPane fx:id="stackPane" prefHeight="600.0" prefWidth="720.0" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane id="paneMenu" layoutX="-1.0" prefHeight="619.0" prefWidth="280.0">
+         <children>
+            <VBox fx:id="vBoxMenu" prefHeight="503.0" prefWidth="280.0" spacing="3.0">
+               <children>
+                  <AnchorPane prefHeight="65.0" prefWidth="280.0">
+                     <children>
+                        <ImageView fitHeight="48.0" fitWidth="45.0" layoutX="28.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/bankIcon.png" />
+                           </image>
+                        </ImageView>
+                        <Label contentDisplay="CENTER" layoutX="82.0" layoutY="15.0" prefHeight="39.0" prefWidth="128.0" text="BANCO" textFill="WHITE">
+                           <font>
+                              <Font name="Agency FB" size="32.0" />
+                           </font>
+                        </Label>
+                        <Line endX="156.0" layoutX="107.0" layoutY="61.0" startX="-90.0">
+                           <stroke>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.46926575899124146" green="0.4595516622066498" blue="0.6052631735801697" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.2587719261646271" green="0.261622816324234" blue="0.31578946113586426" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </stroke>
+                        </Line>
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="280.0" styleClass="btnMenu" text="Home" textAlignment="CENTER">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/homeMenu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnContas" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="284.0" styleClass="btnMenu" text="Contas">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/contasMenu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Segoe UI" size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnTransacoes" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="284.0" styleClass="btnMenu" text="Transações">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/transacoesMenu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnClientes" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="284.0" styleClass="btnMenu" text="Clientes">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/clientesMenu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnFuncionarios" alignment="BOTTOM_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="284.0" styleClass="btnMenu" text="Funcionários">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/funcionariosMenu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnLogs" alignment="BASELINE_LEFT" graphicTextGap="10.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="284.0" styleClass="btnMenu" text="Extratos">
+                     <graphic>
+                        <ImageView fitHeight="42.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/logsMenu.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <HBox id="hBoxSair" fx:id="hBoxSair" layoutX="14.0" layoutY="550.0" prefHeight="55.0" prefWidth="103.0">
+               <children>
+                  <Pane id="paneSair" prefHeight="42.0" prefWidth="52.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="34.0" layoutX="9.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../images/logoutMenu.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <Label prefHeight="42.0" prefWidth="45.0" text="Sair" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.24658869206905365" green="0.235867440700531" blue="0.28947368264198303" />
+               </color>
+            </DropShadow>
+         </effect>
+      </AnchorPane>
+   </children>
+</AnchorPane>
