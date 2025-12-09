@@ -1,2 +1,22 @@
-Sistema de gerenciamento de um banco:
+**Sistema de gerenciamento de um banco:**
 Projeto de integração de Java com banco de dados SQL.
+
+**Arquitetura:**
+Linguagens: Java, SQL (banco) e CSS (design)
+IDE: IntelliJ IDEA
+Interfaces: JavaFX
+Criação de .fxml para interfaces: Scene Builder
+Relatórios: Jasper Studio
+
+**Banco de dados:**
+SGBD: PostgreSQL
+Conceitual/Lógico: BrModelo
+
+**Capturas de tela (todas as views):**
+<img width="701" height="494" alt="image" src="https://github.com/user-attachments/assets/4f2b511e-4123-4b39-856c-4639a8b121b2" />
+<img width="1039" height="648" alt="image" src="https://github.com/user-attachments/assets/1dfbff94-c900-48ed-ac1f-4ad2d079ab30" />
+<img width="1039" height="650" alt="image" src="https://github.com/user-attachments/assets/38c7b084-00c9-4ce5-a72a-cb3deb6a65b1" />
+<img width="1040" height="650" alt="image" src="https://github.com/user-attachments/assets/00420e08-fea6-457b-9750-e566031d2c67" />
+<img width="1038" height="650" alt="image" src="https://github.com/user-attachments/assets/8f059e95-9a2c-436c-b762-ef377e304eb0" />
+<img width="1037" height="649" alt="image" src="https://github.com/user-attachments/assets/f9d03862-e5a7-455f-80d1-699915e7b1c1" />
+<img width="1037" height="650" alt="image" src="https://github.com/user-attachments/assets/db220d8e-a911-4551-ae52-2eafbae06743" />
