@@ -13,6 +13,8 @@ Relatórios: Jasper Studio<br>
 SGBD: PostgreSQL<br>
 Conceitual/Lógico: BrModelo<br>
 
+**Vídeo de apresentação (mostra algumas classes e funções):** *https://drive.google.com/file/d/1shPHOC5YgYTCkasCTDho65PC8F8VFewu/view?usp=sharing* <br>
+
 **Capturas de tela (todas as views):**<br>
 
 <img width="701" height="494" alt="image" src="https://github.com/user-attachments/assets/4f2b511e-4123-4b39-856c-4639a8b121b2" />
