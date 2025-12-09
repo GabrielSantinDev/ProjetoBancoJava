@@ -1,18 +1,20 @@
-**Sistema de gerenciamento de um banco:**
-Projeto de integração de Java com banco de dados SQL.
+**Sistema de gerenciamento de um banco:**<br>
+Projeto de integração de Java com banco de dados SQL.<br>
+Os códigos SQL estão no arquivo dbprojetobancosql.sql<br>
 
-**Arquitetura:**
-Linguagens: Java, SQL (banco) e CSS (design)
-IDE: IntelliJ IDEA
-Interfaces: JavaFX
-Criação de .fxml para interfaces: Scene Builder
-Relatórios: Jasper Studio
+**Arquitetura:**<br>
+Linguagens: Java, SQL (banco) e CSS (design)<br>
+IDE: IntelliJ IDEA<br>
+Interfaces: JavaFX<br>
+Criação de .fxml para interfaces: Scene Builder<br>
+Relatórios: Jasper Studio<br>
 
-**Banco de dados:**
-SGBD: PostgreSQL
-Conceitual/Lógico: BrModelo
+**Banco de dados:**<br>
+SGBD: PostgreSQL<br>
+Conceitual/Lógico: BrModelo<br>
 
-**Capturas de tela (todas as views):**
+**Capturas de tela (todas as views):**<br>
+
 <img width="701" height="494" alt="image" src="https://github.com/user-attachments/assets/4f2b511e-4123-4b39-856c-4639a8b121b2" />
 <img width="1039" height="648" alt="image" src="https://github.com/user-attachments/assets/1dfbff94-c900-48ed-ac1f-4ad2d079ab30" />
 <img width="1039" height="650" alt="image" src="https://github.com/user-attachments/assets/38c7b084-00c9-4ce5-a72a-cb3deb6a65b1" />
