@@ -12,14 +12,20 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -36,7 +42,7 @@ public class ContasController {
     private ObservableList<Integer> listaClientesObs;
 
     @FXML
-    private AnchorPane btnImprimir;
+    private AnchorPane btnImprimir, btnBuscar;
 
     @FXML
     private TableColumn<Conta, Integer> cliente_id;
@@ -60,7 +66,7 @@ public class ContasController {
     private TableColumn<Conta, String> tipo;
 
     @FXML
-    private TextField txtPesquisar, txtNumero, txtSenha, txtSaldo;
+    private TextField txtPesquisar, txtNumero, txtSenha, txtSaldo, txtClienteId;
 
     @FXML
     private ImageView imgEditar;
@@ -69,7 +75,7 @@ public class ContasController {
     private Button btnCriar, btnExcluir, btnEditar, btnLimpar;
 
     @FXML
-    private ComboBox cbxTipo, cbxClienteId;
+    private ComboBox cbxTipo;
 
     private boolean modoEdicao = false;
     private int editarId = -1;
@@ -108,8 +114,6 @@ public class ContasController {
         saldo.setCellValueFactory(new PropertyValueFactory<>("saldo"));
         tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
-        cbxClienteId.setItems(listaClientesObs);
-        cbxClienteId.setVisibleRowCount(4);
     }
 
     private void atualizaTabela() throws SQLException {
@@ -224,7 +228,7 @@ public class ContasController {
         limparErros();
 
         if (txtNumero.getText().isEmpty()) {valido = false; setErro(txtNumero);}
-        if (cbxClienteId.getEditor().getText().isEmpty()) {valido = false; setErro(cbxClienteId);}
+        if (txtClienteId.getText().isEmpty()) {valido = false; setErro(txtClienteId);}
         if (txtSaldo.getText().isEmpty()) {valido = false; setErro(txtSaldo);}
         if (txtSenha.getText().isEmpty()) {valido = false; setErro(txtSenha);}
         if (cbxTipo.getSelectionModel().isEmpty()) {valido = false; setErro(cbxTipo);}
@@ -233,8 +237,8 @@ public class ContasController {
     }
 
     private void preencherCampos(Conta c) {
-        cbxClienteId.getSelectionModel().select(c.getClienteId());
-        cbxClienteId.requestFocus();
+        txtClienteId.setText(String.valueOf(c.getClienteId()));
+        txtClienteId.requestFocus();
         txtNumero.setText(c.getNumero());
         txtSaldo.setText(String.valueOf(c.getSaldo()));
         txtSenha.setText(c.getSenha());
@@ -252,16 +256,16 @@ public class ContasController {
 
     private void limparCampos() {
         txtNumero.setText("");
-        cbxClienteId.getSelectionModel().clearSelection();
+        txtClienteId.setText("");
         txtSaldo.setText("");
         txtSenha.setText("");
-        cbxClienteId.requestFocus();
+        txtClienteId.requestFocus();
         cbxTipo.getSelectionModel().selectFirst();
     }
 
     private void limparErros() {
         txtNumero.setStyle("");
-        cbxClienteId.setStyle("");
+        txtClienteId.setStyle("");
         txtSaldo.setStyle("");
         txtSenha.setStyle("");
         cbxTipo.setStyle("");
@@ -271,7 +275,7 @@ public class ContasController {
         Conta c = new Conta();
 
         c.setNumero(txtNumero.getText());
-        c.setClienteId(Integer.parseInt(cbxClienteId.getSelectionModel().getSelectedItem().toString()));
+        c.setClienteId(Integer.parseInt(txtClienteId.getText()));
         c.setSaldo(Double.parseDouble(txtSaldo.getText()));
         c.setSenha(txtSenha.getText());
 
@@ -287,6 +291,31 @@ public class ContasController {
     @FXML
     protected void btnImprimirClick(MouseEvent mouseEvent) {
         RelatorioUtil.gerarRelatorio("contas");
+    }
+
+    @FXML
+    protected void btnBuscarClick(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("buscarCliente.fxml"));
+        Parent root = loader.load();
+
+        BuscarClienteController controller = loader.getController();
+
+        Stage stage = new Stage();
+
+        stage.setTitle("Selecionar Cliente");
+        Image icone = new Image(getClass().getResourceAsStream("/images/helpIcon.png"));
+        stage.getIcons().add(icone);
+
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(txtClienteId.getScene().getWindow());
+        stage.showAndWait();
+
+        int cId = controller.getSelectedId();
+
+        if (cId != -1) {
+            txtClienteId.setText(String.valueOf(cId));
+        }
     }
 
 }

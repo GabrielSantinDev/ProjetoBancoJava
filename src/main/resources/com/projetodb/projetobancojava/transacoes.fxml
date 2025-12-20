@@ -95,13 +95,37 @@
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cbxOrigemID" editable="true" layoutX="496.0" layoutY="18.0" prefHeight="30.0" prefWidth="166.0" promptText="Selecione ou digite" visibleRowCount="5" />
                         <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="353.0" layoutY="78.0" prefHeight="25.0" prefWidth="131.0" text="ID Conta Destino:">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Label>
-                        <ComboBox fx:id="cbxDestinoID" editable="true" layoutX="496.0" layoutY="74.0" prefHeight="30.0" prefWidth="166.0" promptText="Selecione ou digite" visibleRowCount="5" />
+                        <AnchorPane id="btnBuscar" fx:id="btnBuscarOrigem" layoutX="662.0" layoutY="22.0" onMouseReleased="#btnBuscarOrigemClick" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <ImageView fx:id="imgEditar21" fitHeight="25.0" fitWidth="32.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/helpIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </AnchorPane>
+                        <AnchorPane id="btnBuscar" fx:id="btnBuscarDestino" layoutX="662.0" layoutY="78.0" onMouseReleased="#btnBuscarDestinoClick" prefHeight="20.0" prefWidth="20.0">
+                           <children>
+                              <ImageView fx:id="imgEditar211" fitHeight="25.0" fitWidth="32.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../images/helpIcon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </AnchorPane>
+                        <TextField fx:id="txtContaOrigem" layoutX="496.0" layoutY="18.0" prefHeight="33.0" prefWidth="166.0" promptText="Digite ou pesquise" />
+                        <TextField fx:id="txtContaDestino" layoutX="496.0" layoutY="71.0" prefHeight="33.0" prefWidth="166.0" promptText="Digite ou pesquise" />
                      </children>
                   </AnchorPane>
                   <AnchorPane prefHeight="31.0" prefWidth="636.0">

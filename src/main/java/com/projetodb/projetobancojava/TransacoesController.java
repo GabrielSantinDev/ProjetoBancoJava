@@ -11,14 +11,23 @@ import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -27,13 +36,10 @@ import java.util.ArrayList;
 public class TransacoesController {
 
     @FXML
+    private AnchorPane btnBuscarOrigem, btnBuscarDestino;
+
+    @FXML
     private Button btnCriar, btnExcluir, btnLimpar;
-
-    @FXML
-    private ComboBox<Integer> cbxDestinoID;
-
-    @FXML
-    private ComboBox<Integer> cbxOrigemID;
 
     @FXML
     private ComboBox<String> cbxTipo;
@@ -57,7 +63,7 @@ public class TransacoesController {
     private TableColumn<Transacao, String> tipo;
 
     @FXML
-    private TextField txtPesquisar;
+    private TextField txtPesquisar, txtContaOrigem, txtContaDestino;
 
     @FXML
     private TextField txtValor;
@@ -122,8 +128,11 @@ public class TransacoesController {
     }
 
     private void configValues() {
-        cbxDestinoID.setDisable(true);
-        cbxOrigemID.setDisable(true);
+        txtContaOrigem.setDisable(true);
+        txtContaDestino.setDisable(true);
+
+        btnBuscarOrigem.setDisable(true);
+        btnBuscarDestino.setDisable(true);
 
         cbxTipo.setItems(FXCollections.observableArrayList("Saque", "Depósito", "Transferência"));
         cbxTipo.setVisibleRowCount(3);
@@ -134,13 +143,6 @@ public class TransacoesController {
         destinoId.setCellValueFactory(new PropertyValueFactory<>("contaDestinoFormatada"));
         data.setCellValueFactory(new PropertyValueFactory<>("dataEnvioFormatada"));
         valor.setCellValueFactory(new PropertyValueFactory<>("valor"));
-
-
-        cbxOrigemID.setItems(listaContasObs);
-        cbxOrigemID.setVisibleRowCount(4);
-
-        cbxDestinoID.setItems(listaContasObs);
-        cbxDestinoID.setVisibleRowCount(4);
     }
 
     @FXML
@@ -170,21 +172,21 @@ public class TransacoesController {
         if (tipo == null) { valido = false; setErro(cbxTipo); }
         if (txtValor.getText().isEmpty()) { valido = false; setErro(txtValor);}
 
-        String origemTxt = cbxOrigemID.getEditor().getText();
-        String destinoTxt = cbxDestinoID.getEditor().getText();
+        String origemTxt = txtContaOrigem.getText();
+        String destinoTxt = txtContaDestino.getText();
 
         switch (tipo) {
             case "Saque":
-                if (origemTxt.isEmpty()) { valido = false; setErro(cbxOrigemID); }
+                if (origemTxt.isEmpty()) { valido = false; setErro(txtContaOrigem); }
                 break;
 
             case "Transferência":
-                if (origemTxt.isEmpty()) { valido = false; setErro(cbxOrigemID); }
-                if (destinoTxt.isEmpty()) { valido = false; setErro(cbxDestinoID); }
+                if (origemTxt.isEmpty()) { valido = false; setErro(txtContaOrigem); }
+                if (destinoTxt.isEmpty()) { valido = false; setErro(txtContaDestino); }
                 break;
 
             case "Depósito":
-                if (destinoTxt.isEmpty()) { valido = false; setErro(cbxDestinoID); }
+                if (destinoTxt.isEmpty()) { valido = false; setErro(txtContaDestino); }
                 break;
         }
 
@@ -227,18 +229,18 @@ public class TransacoesController {
         switch (tipo) {
             case "Saque":
                 t.setTipo("saque");
-                t.setContaOrigemId(Integer.parseInt(cbxOrigemID.getEditor().getText()));
+                t.setContaOrigemId(Integer.parseInt(txtContaOrigem.getText()));
                 break;
 
             case "Depósito":
                 t.setTipo("deposito");
-                t.setContaDestinoId(Integer.parseInt(cbxDestinoID.getEditor().getText()));
+                t.setContaDestinoId(Integer.parseInt(txtContaDestino.getText()));
                 break;
 
             case "Transferência":
                 t.setTipo("transferencia");
-                t.setContaDestinoId(Integer.parseInt(cbxDestinoID.getEditor().getText()));
-                t.setContaOrigemId(Integer.parseInt(cbxOrigemID.getEditor().getText()));
+                t.setContaDestinoId(Integer.parseInt(txtContaDestino.getText()));
+                t.setContaOrigemId(Integer.parseInt(txtContaOrigem.getText()));
         }
 
         t.setValor(Double.parseDouble(txtValor.getText()));
@@ -250,33 +252,92 @@ public class TransacoesController {
     private void limparCampos() {
         txtValor.clear();
         cbxTipo.getSelectionModel().selectFirst();
-        cbxOrigemID.getEditor().clear();
-        cbxDestinoID.getEditor().clear();
+        txtContaOrigem.clear();
+        txtContaDestino.clear();
         txtValor.requestFocus();
     }
 
     private void limparErros() {
         txtValor.setStyle("");
         cbxTipo.setStyle("");
-        cbxOrigemID.setStyle("");
-        cbxDestinoID.setStyle("");
+        txtContaOrigem.setStyle("");
+        txtContaDestino.setStyle("");
     }
 
     private void tipoChange(String v) {
         switch (v) {
             case "Saque":
-                cbxDestinoID.setDisable(true);
-                cbxOrigemID.setDisable(false);
+                txtContaDestino.setDisable(true);
+                txtContaOrigem.setDisable(false);
+
+                btnBuscarDestino.setDisable(true);
+                btnBuscarOrigem.setDisable(false);
                 break;
 
             case "Depósito":
-                cbxOrigemID.setDisable(true);
-                cbxDestinoID.setDisable(false);
+                txtContaOrigem.setDisable(true);
+                txtContaDestino.setDisable(false);
+
+                btnBuscarDestino.setDisable(false);
+                btnBuscarOrigem.setDisable(true);
                 break;
 
             case "Transferência":
-                cbxOrigemID.setDisable(false);
-                cbxDestinoID.setDisable(false);
+                txtContaOrigem.setDisable(false);
+                txtContaDestino.setDisable(false);
+
+                btnBuscarOrigem.setDisable(false);
+                btnBuscarDestino.setDisable(false);
+        }
+    }
+
+    @FXML
+    protected void btnBuscarOrigemClick(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("buscarConta.fxml"));
+        Parent root = loader.load();
+
+        BuscarContaController controller = loader.getController();
+
+        Stage stage = new Stage();
+        stage.setTitle("Selecionar conta de origem");
+
+        Image icone = new Image(getClass().getResourceAsStream("/images/helpIcon.png"));
+        stage.getIcons().add(icone);
+
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(txtContaOrigem.getScene().getWindow());
+        stage.showAndWait();
+
+        int cId = controller.getSelectedId();
+
+        if (cId != -1) {
+            txtContaOrigem.setText(String.valueOf(cId));
+        }
+    }
+
+    @FXML
+    protected void btnBuscarDestinoClick(MouseEvent mouseEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("buscarConta.fxml"));
+        Parent root = loader.load();
+
+        BuscarContaController controller = loader.getController();
+
+        Stage stage = new Stage();
+
+        stage.setTitle("Selecionar conta de destino");
+        Image icone = new Image(getClass().getResourceAsStream("/images/helpIcon.png"));
+        stage.getIcons().add(icone);
+
+        stage.setScene(new Scene(root));
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.initOwner(txtContaDestino.getScene().getWindow());
+        stage.showAndWait();
+
+        int cId = controller.getSelectedId();
+
+        if (cId != -1) {
+            txtContaDestino.setText(String.valueOf(cId));
         }
     }
 
