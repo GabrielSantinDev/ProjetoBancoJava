@@ -22,7 +22,7 @@ Roles criadas: 2;<br>
 
 **Vídeo de apresentação (mostra algumas classes e funções):** *https://drive.google.com/file/d/1shPHOC5YgYTCkasCTDho65PC8F8VFewu/view?usp=sharing* <br>
 
-**Vídeo das alterações (views para busca de clientes e contas):** *https://drive.google.com/file/d/1GJ97VNu3YPoX6Wgi2EQqGJ23tcnibIxL/view?usp=sharing* <br>
+**Vídeo das alterações (views para buscar clientes/contas e correção de problema de atualizar a tabela de clientes):** *https://drive.google.com/file/d/1GJ97VNu3YPoX6Wgi2EQqGJ23tcnibIxL/view?usp=sharing* <br>
 
 **Capturas de tela:**<br>
 
