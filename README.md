@@ -13,14 +13,15 @@ Relatórios: Jasper Studio<br>
 **Banco de dados:**<br>
 SGBD: PostgreSQL<br>
 Conceitual/Lógico: BrModelo<br>
-Tabelas criadas: 5;
-Views criadas: 2;
-Funções criadas: 4;
-Procedures criadas: 3;
-Triggers criadas: 2;
-Roles criadas: 2;
+Tabelas criadas: 5;<br>
+Views criadas: 2;<br>
+Funções criadas: 4;<br>
+Procedures criadas: 3;<br>
+Triggers criadas: 2;<br>
+Roles criadas: 2;<br>
 
 **Vídeo de apresentação (mostra algumas classes e funções):** *https://drive.google.com/file/d/1shPHOC5YgYTCkasCTDho65PC8F8VFewu/view?usp=sharing* <br>
+
 **Vídeo das alterações (views para busca de clientes e contas):** *https://drive.google.com/file/d/1GJ97VNu3YPoX6Wgi2EQqGJ23tcnibIxL/view?usp=sharing* <br>
 
 **Capturas de tela:**<br>
